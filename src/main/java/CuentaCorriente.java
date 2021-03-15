@@ -8,8 +8,8 @@
  *
  * @author Laura
  */
-public class CuentaAhorro extends CuentaBancaria {
+public abstract class CuentaCorriente extends CuentaBancaria {
     
-    String interesRem;
+    String entidadesAutorizadas;
     
 }

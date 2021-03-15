@@ -8,6 +8,8 @@
  *
  * @author Laura
  */
-public class Imprimible {
+public interface Imprimible {//devolverá la información de una cuenta como una cadena de caracteres.
+    
+     String devolverInfoString();
     
 }

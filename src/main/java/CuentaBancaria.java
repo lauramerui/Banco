@@ -8,6 +8,13 @@
  *
  * @author Laura
  */
-public class CuentaBancaria {
+public abstract class CuentaBancaria {
+    
+    Persona p;
+    
+    double saldo;
+    
+    String iban;
+    
     
 }

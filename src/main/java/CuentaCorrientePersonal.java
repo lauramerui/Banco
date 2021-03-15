@@ -8,6 +8,8 @@
  *
  * @author Laura
  */
-public class CuentaCorrientePersonal {
+public class CuentaCorrientePersonal extends CuentaCorriente {
+    
+    double comisionMant; //cantidad fija anual
     
 }

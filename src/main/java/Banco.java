@@ -10,4 +10,48 @@
  */
 public class Banco {
     
+    public Banco(){//constructor
+        
+    }
+    
+    /*//recibe por parámetro un objeto CuentaBancaria y lo almacena en la estructura. 
+    Devuelve true o false indicando si la operación se realizó con éxito.*/
+    boolean abrirCuenta(){
+        
+        return false;
+    }
+    
+    /*no recibe parámetro y devuelve un array donde cada elemento es una cadena 
+    que representa la información de una cuenta.*/
+    void listadoCuentas(){
+        
+    }
+    
+    /*recibe un iban por parámetro y devuelve una cadena con la información de la 
+    cuenta o null si la cuenta no existe.*/
+    String informacionCuenta(){
+        
+        return null;
+    }
+    
+    /*recibe un iban por parámetro y una cantidad e ingresa la cantidad en la cuenta. 
+    Devuelve true o false indicando si la operación se realizó con éxito.*/
+    boolean ingresoCuenta(){
+        
+        return false;
+    }
+    
+    /*recibe un iban por parámetro y una cantidad y trata de retirar la cantidad 
+    de la cuenta. Devuelve true o false indicando si la operación se realizó con éxito.*/
+    boolean retiradaCuenta(){
+        
+        return false;
+    }
+    
+    /*Recibe un iban por parámetro y devuelve el saldo de la cuenta si existe. 
+    En caso contrario devuelve -1.*/
+    double obtenerSaldo(){
+        
+        return -1;
+    }
 }

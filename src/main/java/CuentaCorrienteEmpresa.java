@@ -8,6 +8,12 @@
  *
  * @author Laura
  */
-public class CuentaCorrienteEmpresa {
+public class CuentaCorrienteEmpresa extends CuentaCorriente {
+    
+    double descubierto;//máximo descubierto permitido
+    
+    String interesDesc; //tipo de interés por descubierto
+    
+    double comisionDesc;//comisión fija por cada descubierto que se tenga
     
 }
