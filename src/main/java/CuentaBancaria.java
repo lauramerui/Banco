@@ -50,10 +50,5 @@ public abstract class CuentaBancaria implements Imprimible {
     }
     
     
-    @Override
-    public String devolverInfoString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
 }

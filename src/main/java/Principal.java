@@ -40,6 +40,9 @@ public class Principal {
         int tipo;
         String nombre, apellidos, dni, iban, interesRem, interesDesc, entidadesAutorizadas;
         double saldo, comisionMant, descubierto, comisionDesc;
+        
+        Banco banco=new Banco();
+        
         do{
             menu=mostrarMenu();
             
@@ -61,6 +64,7 @@ public class Principal {
                      
                     System.out.println("Saldo de la cuenta:");
                     saldo=entrada.nextDouble();
+                    entrada.nextLine();
                     
                     System.out.println("Número de cuenta(IBAN):");//SE validará con una expresión regular y deberá tener formato ESNNNNNNNNNNNNNNNNNNNN, donde N es un dígito del 0 al 9.
                     iban=entrada.nextLine();
@@ -72,8 +76,13 @@ public class Principal {
                         case 1://cuenta de ahorro
                             System.out.println("Tipo de interes de remuneración:");
                             interesRem=entrada.nextLine();
+                            entrada.nextLine();
                             
-                            CuentaBancaria cuenta=new CuentaAhorro(p, saldo, iban, interesRem);
+                            CuentaBancaria cAhorro=new CuentaAhorro(p, saldo, iban, interesRem);
+                            
+                            banco.abrirCuenta(cAhorro);
+                           
+                           break;
                             
                         case 2://cuenta corriente personal
                             System.out.println("lista de entidades autorizadas para cobrar recibos domiciliados en la cuenta:");
@@ -82,23 +91,43 @@ public class Principal {
                             System.out.println("Comisión de mantenimiento:");
                             comisionMant=entrada.nextDouble();
                             
+                            CuentaBancaria cCorrientep=new CuentaCorrientePersonal(comisionMant, p, saldo, iban, entidadesAutorizadas);
+                            
+                            banco.abrirCuenta(cCorrientep);
+                            
+                            break;
+                            
                         case 3://cuenta corriente de empresa
                             System.out.println("lista de entidades autorizadas para cobrar recibos domiciliados en la cuenta:");
                             entidadesAutorizadas=entrada.nextLine();
                             
                             System.out.println("Máximo descubierto permitido:");
                             descubierto=entrada.nextDouble();
+                            entrada.nextLine();
                             
                             System.out.println("Tipo de interés por descubierto:");
                             interesDesc=entrada.nextLine();
                             
                             System.out.println("Comisión fija por cada descubierto:");
                             comisionDesc=entrada.nextDouble();
+                            entrada.nextLine();
+                            
+                            CuentaBancaria cCorrientee=new CuentaCorrienteEmpresa(descubierto, interesDesc, comisionDesc, p, saldo, iban, entidadesAutorizadas);
+                            
+                            banco.abrirCuenta(cCorrientee);
+                            
+                            break;
                             
                     }
                     
+                    break;
+                    
                     
                 case 2:
+                    
+                    banco.listadoCuentas();
+                    
+                    break;
                     
                 case 3:
                     

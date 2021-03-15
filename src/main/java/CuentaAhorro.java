@@ -27,4 +27,13 @@ public class CuentaAhorro extends CuentaBancaria {
         this.interesRem = interesRem;
     }
     
+    @Override
+     public String devolverInfoString() {
+
+         String contenido = "Nombre: " + p.getNombre() + 
+                " Apellidos: " + p.getApellidos() + " DNI: " + p.getDni() + "\nSaldo: " 
+                 + this.saldo + "\nIBAN: " + this.iban + "\nTipo de interés de remuneración: " + this.interesRem;
+                 
+         return contenido;
+     }
 }

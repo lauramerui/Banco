@@ -24,16 +24,26 @@ public class Banco {
     
     /*recibe por parámetro un objeto CuentaBancaria y lo almacena en la estructura. 
     Devuelve true o false indicando si la operación se realizó con éxito.*/
-    boolean abrirCuenta(CuentaBancaria cb){
+    public boolean abrirCuenta(CuentaBancaria cb){
         
+        banco[numCuenta]=cb;
         
+        numCuenta++;
         
-        return false;
+        return true;
+
     }
-    
+
     /*no recibe parámetro y devuelve un array donde cada elemento es una cadena 
     que representa la información de una cuenta.*/
     void listadoCuentas(){
+        
+        int i=0;
+        
+        while (i<numCuenta){
+        System.out.println("Cuenta número " + (i+1) + " \n" + banco[i].devolverInfoString() + " \n");
+        i++;
+        }
         
     }
     

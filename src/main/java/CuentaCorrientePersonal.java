@@ -24,6 +24,15 @@ public class CuentaCorrientePersonal extends CuentaCorriente {
     public void setComisionMant(double comisionMant) {
         this.comisionMant = comisionMant;
     }
+
+    @Override
+    public String devolverInfoString() {
+         String contenido = "Nombre: " + p.getNombre() + 
+                " Apellidos: " + p.getApellidos() + " DNI: " + p.getDni() + "\nSaldo: " 
+                 + this.saldo + "\nIBAN: " + this.iban + "\nComisión de mantenimiento: " + this.comisionMant;
+                 
+         return contenido;
+    }
     
     
     

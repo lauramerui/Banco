@@ -46,6 +46,16 @@ public class CuentaCorrienteEmpresa extends CuentaCorriente {
     public void setComisionDesc(double comisionDesc) {
         this.comisionDesc = comisionDesc;
     }
+
+    @Override
+    public String devolverInfoString() {
+         String contenido = "Nombre: " + p.getNombre() + 
+                " Apellidos: " + p.getApellidos() + " DNI: " + p.getDni() + "\nSaldo: " 
+                 + this.saldo + "\nIBAN: " + this.iban + "\nMáximo descubierto permitido " + this.descubierto + "\nTipo de interés por descubierto: " 
+                 + this.interesDesc + "\nComisión fija por descubierto: " + this.comisionDesc;
+                 
+         return contenido;
+    }
     
     
     
