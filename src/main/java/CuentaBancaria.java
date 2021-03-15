@@ -8,13 +8,52 @@
  *
  * @author Laura
  */
-public abstract class CuentaBancaria {
+public abstract class CuentaBancaria implements Imprimible {
     
-    Persona p;
+    protected Persona p;
     
-    double saldo;
+    protected double saldo;
     
-    String iban;
+    protected String iban;
+    
+    //constructor
+    public CuentaBancaria (Persona p, double saldo, String iban){
+        
+        this.p=p;
+        this.saldo=saldo;
+        this.iban=iban;
+                
+    }
+
+    public Persona getP() {
+        return p;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setP(Persona p) {
+        this.p = p;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+    
+    
+    @Override
+    public String devolverInfoString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

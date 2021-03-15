@@ -10,6 +10,21 @@
  */
 public abstract class CuentaCorriente extends CuentaBancaria {
     
-    String entidadesAutorizadas;
+    protected String entidadesAutorizadas;
+    
+    public CuentaCorriente(Persona p, double saldo, String iban, String entidadesAutorizadas){
+        
+        super(p, saldo, iban);
+        this.entidadesAutorizadas=entidadesAutorizadas;
+    }
+
+    public String getEntidadesAutorizadas() {
+        return entidadesAutorizadas;
+    }
+
+    public void setEntidadesAutorizadas(String entidadesAutorizadas) {
+        this.entidadesAutorizadas = entidadesAutorizadas;
+    }
+    
     
 }

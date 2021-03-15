@@ -12,4 +12,19 @@ public class CuentaAhorro extends CuentaBancaria {
     
     String interesRem;
     
+    //constructor
+    public CuentaAhorro(Persona p, double saldo, String iban, String interesRem){
+        
+        super(p, saldo, iban);
+        this.interesRem=interesRem;
+    }
+
+    public String getInteresRem() {
+        return interesRem;
+    }
+
+    public void setInteresRem(String interesRem) {
+        this.interesRem = interesRem;
+    }
+    
 }

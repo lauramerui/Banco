@@ -10,13 +10,23 @@
  */
 public class Banco {
     
+    final static int TAM_BANCO=100;
+    int numCuenta;
+    
+    CuentaBancaria banco[];
+    
     public Banco(){//constructor
+        
+        banco=new CuentaBancaria[100];
+        numCuenta=0;
         
     }
     
-    /*//recibe por parámetro un objeto CuentaBancaria y lo almacena en la estructura. 
+    /*recibe por parámetro un objeto CuentaBancaria y lo almacena en la estructura. 
     Devuelve true o false indicando si la operación se realizó con éxito.*/
-    boolean abrirCuenta(){
+    boolean abrirCuenta(CuentaBancaria cb){
+        
+        
         
         return false;
     }

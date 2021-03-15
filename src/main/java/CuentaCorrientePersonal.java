@@ -10,6 +10,22 @@
  */
 public class CuentaCorrientePersonal extends CuentaCorriente {
     
-    double comisionMant; //cantidad fija anual
+    protected double comisionMant; //cantidad fija anual
+
+    public CuentaCorrientePersonal(double comisionMant, Persona p, double saldo, String iban, String entidadesAutorizadas) {
+        super(p, saldo, iban, entidadesAutorizadas);
+        this.comisionMant = comisionMant;
+    }
+
+    public double getComisionMant() {
+        return comisionMant;
+    }
+
+    public void setComisionMant(double comisionMant) {
+        this.comisionMant = comisionMant;
+    }
+    
+    
+    
     
 }
