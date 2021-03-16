@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Esta clase contiene como atributo la estructura que almacena diferentes cuentas 
+ * bancarias (100 como máximo). 
  */
 
 /**
@@ -10,20 +9,28 @@
  */
 public class Banco {
     
-    final static int TAM_BANCO=100;
-    int numCuenta;
+    final static int TAM_BANCO=100; //constante que define el tamaño del banco
     
-    CuentaBancaria banco[];
+    int numCuenta; //constante para contabilizar el número de cuentas creadas
     
-    public Banco(){//constructor
+    CuentaBancaria banco[]; //declaración del que array de tipo CuentaBancaria que va a almacenar las cuentas
+    
+    /**
+     * Constructor de la clase Banco. Inicializa el array con el tamaño del banco
+     * e inicializa el contador a 0.
+     */
+    public Banco(){
         
-        banco=new CuentaBancaria[100];
+        banco=new CuentaBancaria[TAM_BANCO];
+        
         numCuenta=0;
-        
     }
     
-    /*recibe por parámetro un objeto CuentaBancaria y lo almacena en la estructura. 
-    Devuelve true o false indicando si la operación se realizó con éxito.*/
+    /**
+     * Recibo por parámetro un objeto CuentaBancaria y lo almacena en la estructura
+     * @param cb: objeto CuentaBancaria recibido desde la clase Principal.
+     * @return true si se ha creado correctamente.
+     */
     public boolean abrirCuenta(CuentaBancaria cb){
         
         banco[numCuenta]=cb;
@@ -31,46 +38,108 @@ public class Banco {
         numCuenta++;
         
         return true;
-
     }
 
-    /*no recibe parámetro y devuelve un array donde cada elemento es una cadena 
-    que representa la información de una cuenta.*/
+    /**
+     * Devuelve un array con cadenas de texto con la información de cada cuenta(código, titular y DNI)
+     */
     void listadoCuentas(){
         
         int i=0;
         
         while (i<numCuenta){
-        System.out.println("Cuenta número " + (i+1) + " \n" + banco[i].devolverInfoString() + " \n");
-        i++;
-        }
         
+            System.out.println("Cuenta número " + (i+1) + "\nCódigo de cuenta: " + banco[i].getIban() + 
+                "\nTitular: " + (banco[i].getP()).getNombre() + " " + (banco[i].getP()).getApellidos() 
+                + " con DNI: " + (banco[i].getP()).getDni() + "\nSaldo actual: " + banco[i].getSaldo() + "€\n");
+            
+            i++;
+        }
     }
     
     /*recibe un iban por parámetro y devuelve una cadena con la información de la 
     cuenta o null si la cuenta no existe.*/
-    String informacionCuenta(){
+    /**
+     * Recibe un IBAN para devolver la información de dicha cuenta. Para ello compara
+     * el IBAN recibido por parámetro con los de todas las cuentas creadas con un bucle
+     * de tipo while. Si encuentra la coincidencia devuelve la información a través de
+     * la interfaz Imprimible.
+     * @param iban: número de cuenta.
+     * @return información si se encuentra el IBAN en el banco, null si no se encuentra el IBAN.
+     */
+    String informacionCuenta(String iban){
         
-        return null;
+        for (int i=0; i<numCuenta; i++){
+            
+            if(banco[i].getIban().equals(iban)){
+                
+                String informacion= "\nInformación de la cuenta con IBAN " + iban + ":\n" + banco[i].devolverInfoString();
+                
+                return informacion;
+            }
+        } 
+        
+        return null; //si no se encuentra el IBAN devuelve null.
     }
     
-    /*recibe un iban por parámetro y una cantidad e ingresa la cantidad en la cuenta. 
-    Devuelve true o false indicando si la operación se realizó con éxito.*/
-    boolean ingresoCuenta(){
+    /**
+     * Recibe un IBAN y una cantidad, si encuentra una cuenta con dicho IBAN, suma
+     * la cantidad al saldo de la cuenta.
+     * @param iban: número de cuenta.
+     * @param cantidad: cantidad de dinero que se desea ingresar en la cuenta.
+     * @return true si el ingreso se ha realizado correctamente, false en caso contrario.
+     */
+    boolean ingresoCuenta(String iban, double cantidad){
         
-        return false;
+        for (int i=0; i<numCuenta; i++){
+             
+            if(banco[i].getIban().equals(iban)){
+                
+                banco[i].setSaldo(banco[i].getSaldo() + cantidad); 
+                
+                return true;
+            }
+        }
+        
+        return false; //si no se encuentra una cuenta con el IBAN recibido devuelve false
     }
     
-    /*recibe un iban por parámetro y una cantidad y trata de retirar la cantidad 
-    de la cuenta. Devuelve true o false indicando si la operación se realizó con éxito.*/
-    boolean retiradaCuenta(){
+    /**
+     * Recibe un IBAN y una cantidad, si encuentra dicho IBAN resta la cantidad al saldo de la cuenta.
+     * @param iban: número de cuenta.
+     * @param cantidad: cantidad de dinero que se quiere retirar de la cuenta.
+     * @return true si se retira el dinero correctamente, false en caso contrario.
+     */
+    boolean retiradaCuenta(String iban, double cantidad){
+    
+        for (int i=0; i<numCuenta; i++){
+            
+            if(banco[i].getIban().equals(iban)){
+                
+                banco[i].setSaldo(banco[i].getSaldo() - cantidad);
+                
+                return true;
+            }
+        }
         
-        return false;
+        return false;   
     }
     
-    /*Recibe un iban por parámetro y devuelve el saldo de la cuenta si existe. 
-    En caso contrario devuelve -1.*/
-    double obtenerSaldo(){
+    /**
+     * Recibe un IBAN y si encuentra una cuenta con dicho IBAN devuelve su saldo.
+     * @param iban
+     * @return el saldo de la cuenta si es encontrada, -1 si la cuenta no existe.
+     */
+    double obtenerSaldo(String iban){
+        
+        for(int i=0; i<numCuenta; i++){
+            
+            if(banco[i].getIban().equals(iban)){
+                
+            return  banco[i].getSaldo(); 
+            
+            }
+        }
         
         return -1;
     }

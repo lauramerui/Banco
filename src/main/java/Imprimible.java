@@ -1,15 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Interfaz que implementa un método para devolver la información de una cuenta 
+ * con cadena de carácteres
  */
 
 /**
  *
  * @author Laura
  */
+
 public interface Imprimible {//devolverá la información de una cuenta como una cadena de caracteres.
     
-     String devolverInfoString();
+    /**
+     * Método para devolver información de cuentas bancarias
+     * @return cadena de carácteres con información de cuentas bancarias
+     */
+    String devolverInfoString();
     
 }
